@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Dog : Animal
 {
-    private float speed = 10f;
+    
     private int randomStep;
     private Rigidbody rb;
     [SerializeField] private Transform moveStep;
    
     private void Start()
     {
+        speed = 10f;
         randomStep = Random.Range(0, moveStep.transform.childCount);
         rb = GetComponent<Rigidbody>();
     }
@@ -23,12 +24,12 @@ public class Dog : Animal
         
     }
 
-    public override void Movement()
+    private void Movement()
     {
 
-        rb.MovePosition(Vector3.MoveTowards(rb.transform.localPosition, moveStep.transform.GetChild(randomStep).localPosition, speed * Time.deltaTime));
+        rb.MovePosition(moveStep.transform.GetChild(randomStep).position * speed * Time.deltaTime);
 
-        if (Vector2.Distance(rb.transform.localPosition, moveStep.transform.GetChild(randomStep).localPosition) < 0.2f)
+        if (Vector2.Distance(rb.transform.position, moveStep.transform.GetChild(randomStep).localPosition) < 0.2f)
         {
             randomStep = Random.Range(0, moveStep.transform.childCount);
         }

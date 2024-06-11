@@ -10,11 +10,19 @@ public class Cat : Animal
     Vector3 moveVector;
     private float speed = 5f;
     private bool isWalk = false;
+    Transform pos;
+
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        
+    }
 
+    public void StartPos(Vector3 pos)
+    {
+        transform.position = pos;
     }
 
     
@@ -22,7 +30,7 @@ public class Cat : Animal
     {
         Movement();       
     }
-    public override void Movement()
+    private void Movement()
     {
         /*moveVector.x = Input.GetAxis("Horizontal");
         moveVector.z = Input.GetAxis("Vertical");*/

@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\animalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|p:\\projects and documents\\unity project\\pattern_1\\assets\\scripts\\animalabstractfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animalabstractfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|p:\\projects and documents\\unity project\\pattern_1\\assets\\scripts\\objectbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\objectbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ObjectBuilder.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\ObjectBuilder.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ObjectBuilder.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\ObjectBuilder.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ObjectBuilder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T18:21:41.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cat.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Cat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Cat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T17:58:04.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AnimalFactory.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\AnimalFactory.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AnimalFactory.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\AnimalFactory.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AnimalFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T17:53:36.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Animal.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Animal.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Animal.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Animal.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Animal.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T17:31:53.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AnimalAbstractFactory.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\AnimalAbstractFactory.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AnimalAbstractFactory.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\AnimalAbstractFactory.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AnimalAbstractFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T17:29:51.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dog.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Dog.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Dog.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Dog.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Dog.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T16:59:31.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Camera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Camera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T15:43:07.042Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
