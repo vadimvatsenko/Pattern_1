@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class AnimalAbstractFactory : MonoBehaviour
 {
-    public abstract Cat CreateCat();
-    public abstract Dog CreateDog();
-
-    /*public abstract GameObject CreateGameObject();*/
+    public abstract GameObject CreateCat(); // Cat это скрипт
+    public abstract List<GameObject> CreateDog();
+    public abstract List<GameObject> CreateChickens();
+    
 }
