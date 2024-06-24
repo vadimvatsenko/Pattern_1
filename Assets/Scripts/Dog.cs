@@ -30,12 +30,7 @@ public class Dog : Animal
         _matrix = MoveMatrix();
         SetRandomStep();
     }
-    void Update()
-    {
-        
-        
-    }
-
+    
     private void FixedUpdate()
     {
         Movement();

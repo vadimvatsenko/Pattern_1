@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Chicken : Animal
 {
-    private float _force;
     private Transform _catPos;
+
+    private float _jumpForce;
+    private float _enemyMaxDistance;
     public override void Start()
     {
-        base.Start();
-        
-
+        base.Start();       
         _catPos = FindObjectOfType<Cat>().transform;
 
         this.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         this._collader.center = new Vector3(0f, 0.5f, 0f);
-        _force = 0.25f;
+
+        _jumpForce = 0.25f;
         _rb.mass = 0.1f;
+        _enemyMaxDistance = 3f;
 
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Chicken/Chicken"); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
@@ -36,9 +38,9 @@ public class Chicken : Animal
     {
         _moveVector = (this.transform.localPosition - animal.localPosition).normalized;
 
-        if ((Vector3.Distance(this.transform.localPosition, animal.transform.localPosition) < 3f))
+        if ((Vector3.Distance(this.transform.localPosition, animal.transform.localPosition) < _enemyMaxDistance))
         {
-            _rb.AddForce(new Vector3(0, 0.2f, 0) + _moveVector * _force, ForceMode.Impulse);
+            _rb.AddForce(new Vector3(0, _jumpForce, 0) + _moveVector * _jumpForce, ForceMode.Impulse);
             _animator.SetTrigger("jump");
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);

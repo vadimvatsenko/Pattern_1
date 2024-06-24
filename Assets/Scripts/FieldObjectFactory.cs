@@ -8,12 +8,17 @@ using System.Threading;
 
 public class FieldObjectFactory : FieldObjectAbstractFactory
 {
-    private GameObject _plane;
+    Plane _plane;
+
+    private void Start()
+    {
+        _plane = new Plane();
+    }
     public override GameObject CreatePlane()
     {
-        _plane = GameObject.CreatePrimitive(PrimitiveType.Plane); // создание примитивной фигуры
-        _plane.AddComponent<Plane>();
-        return _plane;
+        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane); // создание примитивной фигуры
+        plane.AddComponent<Plane>();
+        return plane;
     }
 
     public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)
@@ -22,10 +27,13 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
         
         Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
 
+        
+
         for (int i = 0; i < numb; i++)
         {        
             GameObject newFlower = GameObject.Instantiate(flowerPrefab);
             newFlower.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
+
             newFlower.transform.SetParent(flowersHolder);
             
             await Task.Yield();
@@ -35,12 +43,12 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
     public override List<GameObject> CreateTrees2()
     {
         Transform trees2Holder = GameObject.FindGameObjectWithTag("Map").transform.Find("Trees2");
-        Transform _plane = GameObject.FindGameObjectWithTag("Map").transform;
+        Transform plane = GameObject.FindGameObjectWithTag("Map").transform;
         GameObject tree2Prefab = Resources.Load<GameObject>("Prefabs/Tree2");
         int randomCountTrees2 = Random.Range(20, 30);
 
-        Vector3 planeSize = _plane.GetComponent<MeshFilter>().mesh.bounds.size;
-        Vector3 planeWorldSize = Vector3.Scale(planeSize, _plane.transform.localScale);
+        Vector3 planeSize = plane.GetComponent<MeshFilter>().mesh.bounds.size;
+        Vector3 planeWorldSize = Vector3.Scale(planeSize, plane.transform.localScale);
 
         List<GameObject> trees2List = new List<GameObject>();
 
@@ -58,12 +66,12 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
     public override List<GameObject> CreateTrees1()
     {
         Transform trees1Holder = GameObject.FindGameObjectWithTag("Map").transform.Find("Trees1");
-        Transform _plane = GameObject.FindGameObjectWithTag("Map").transform;
+        Transform plane = GameObject.FindGameObjectWithTag("Map").transform;
         GameObject tree1Prefab = Resources.Load<GameObject>("Prefabs/Tree1");
         int randomCountTrees1 = Random.Range(20, 30);
 
-        Vector3 planeSize = _plane.GetComponent<MeshFilter>().mesh.bounds.size;
-        Vector3 planeWorldSize = Vector3.Scale(planeSize, _plane.transform.localScale);
+        Vector3 planeSize = plane.GetComponent<MeshFilter>().mesh.bounds.size;
+        Vector3 planeWorldSize = Vector3.Scale(planeSize, plane.transform.localScale);
 
         List<GameObject> trees1List = new List<GameObject>();
 

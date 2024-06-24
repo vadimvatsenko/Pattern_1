@@ -8,6 +8,4 @@ public struct FieldClamp
     private static float Left;
     private static float Right;
     private static float _z;
-
-
 }
