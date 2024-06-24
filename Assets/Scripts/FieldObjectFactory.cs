@@ -8,18 +8,12 @@ using System.Threading;
 
 public class FieldObjectFactory : FieldObjectAbstractFactory
 {
-    Transform _plane;
-
-    private void Start()
-    {
-        _plane = FindObjectOfType<Plane>().transform;
-    }
+    private GameObject _plane;
     public override GameObject CreatePlane()
     {
-        Debug.Log("Plane");
-        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane); // создание примитивной фигуры
-        plane.AddComponent<Plane>();
-        return plane;
+        _plane = GameObject.CreatePrimitive(PrimitiveType.Plane); // создание примитивной фигуры
+        _plane.AddComponent<Plane>();
+        return _plane;
     }
 
     public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)

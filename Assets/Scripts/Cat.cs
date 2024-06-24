@@ -18,14 +18,12 @@ public class Cat : Animal
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Cat/Cat"); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
     }
-
     
     void Update()
     {
         Movement();
         if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
-            Debug.Log("Space");
             Jump();
             isJump = false;
         }
@@ -42,14 +40,13 @@ public class Cat : Animal
         if (_moveVector != Vector3.zero) 
         {
             _moveVector = _moveVector.normalized;
-
+     
             _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp) + _moveVector * speed * Time.deltaTime);
 
-            Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
-
-            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed);
-        }
-        
+            Quaternion unitRotation = Quaternion.LookRotation(new Vector3(_moveVector.x, _moveVector.y, _moveVector.z));
+            
+            _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed));
+        }        
     }  
     
     private void Jump()

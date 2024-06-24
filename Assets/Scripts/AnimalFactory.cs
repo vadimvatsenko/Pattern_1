@@ -7,9 +7,11 @@ using UnityEngine.SocialPlatforms;
 
 public class AnimalFactory : AnimalAbstractFactory
 {
-    private async Task Start()
+    private Plane _plane;
+    public void Awake()
     {
-
+        _plane = FindObjectOfType<Plane>();
+        Debug.Log(_plane.gameObject.name);
     }
     public override GameObject CreateCat()
     {
@@ -18,7 +20,6 @@ public class AnimalFactory : AnimalAbstractFactory
         goCat.AddComponent<Cat>(); 
         return goCat;
     }
-
 
     public override async IAsyncEnumerable<GameObject> CreateDogAsync(int count)
     {

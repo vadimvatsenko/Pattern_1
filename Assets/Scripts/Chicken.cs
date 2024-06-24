@@ -6,12 +6,13 @@ public class Chicken : Animal
 {
     private float _force;
     private Transform _catPos;
-    private Transform _dogPos;
     public override void Start()
     {
         base.Start();
+        
+
         _catPos = FindObjectOfType<Cat>().transform;
-      
+
         this.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         this._collader.center = new Vector3(0f, 0.5f, 0f);
         _force = 0.25f;
@@ -21,12 +22,6 @@ public class Chicken : Animal
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
     }
 
-    private void Update()
-    {
-        
-
-    }
-
     private void FixedUpdate()
     {
         RunChicken();
@@ -34,25 +29,25 @@ public class Chicken : Animal
 
     private void RunChicken()
     {
-        _moveVector = (this.transform.localPosition - _catPos.transform.localPosition);
+        AnimalContactWithChickens(_catPos);
+    }
 
-        //_rb.MovePosition(new Vector3(xClamp, 0.2f, zClamp));
+    private void AnimalContactWithChickens(Transform animal)
+    {
+        _moveVector = (this.transform.localPosition - animal.localPosition).normalized;
 
-        if ((Vector3.Distance(this.transform.localPosition, _catPos.transform.localPosition ) < 3f))
+        if ((Vector3.Distance(this.transform.localPosition, animal.transform.localPosition) < 3f))
         {
             _rb.AddForce(new Vector3(0, 0.2f, 0) + _moveVector * _force, ForceMode.Impulse);
-            Debug.Log(new Vector3(0, 0.2f, 0) + _moveVector);
             _animator.SetTrigger("jump");
 
-
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
-            
-            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * 5f);
+            _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * 30f));
         }
 
         float xClamp = Mathf.Clamp(this._rb.position.x, -_plane._planeWorldSize.x / 2 + 0.5f, _plane._planeWorldSize.x / 2 - 0.5f);
         float zClamp = Mathf.Clamp(this._rb.position.z, -_plane._planeWorldSize.z / 2 + 0.5f, _plane._planeWorldSize.z / 2 - 0.5f);
 
-        _rb.position = new Vector3(xClamp, this._rb.position.y, zClamp);
+        _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp));
     }
 }
