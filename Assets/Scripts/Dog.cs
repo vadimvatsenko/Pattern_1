@@ -17,7 +17,7 @@ public class Dog : Animal
         _dogsParent = new GameObject("Dogs").transform;
         this.transform.SetParent(_dogsParent);
         _catPos = FindObjectOfType<Cat>().transform;
-        speed = 10f;
+        speed = 5f;
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);
         this.tag = "Enemy";
@@ -32,28 +32,30 @@ public class Dog : Animal
     }
     void Update()
     {
-        Movement();
         
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     private void Movement()
     {
         _direction = (_randomStep - transform.position).normalized;
-        _rb.MovePosition(Vector3.MoveTowards(transform.position, _randomStep, speed * Time.deltaTime));
+        _rb.MovePosition(Vector3.MoveTowards(transform.position, _randomStep, speed * Time.fixedDeltaTime));
 
         _animator.SetBool("IsWalk", _direction != Vector3.zero);
 
         if (_direction != Vector3.zero)
         {
             Quaternion unitRotation = Quaternion.LookRotation(_direction);
-            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed);
+            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * speed);
         }
         if (Vector3.Distance(this.transform.localPosition, _randomStep) < 0.2f) SetRandomStep();
 
-        /*if (Vector3.Distance(this.transform.position, _catPos.transform.position) < 2f)
-        {
-            _rb.MovePosition(Vector3.MoveTowards(this.transform.position, _catPos.transform.position, speed * 1.5f * Time.deltaTime));
-        }*/
+        
     }
 
     private List<Vector3> MoveMatrix()

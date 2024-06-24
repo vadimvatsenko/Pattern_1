@@ -30,8 +30,6 @@ public class ObjectBuilder : MonoBehaviour
     {
         await foreach (var ch in _factory.CreateChickensAsync(200)) ;
         await foreach (var dog in _factory.CreateDogAsync(5)) ;
-        await foreach(var flow in _fieldObjectFactory.CreateFlowersAsync(500)) ;
-        
+        await foreach(var flow in _fieldObjectFactory.CreateFlowersAsync(500)) ;        
     }
-
 }

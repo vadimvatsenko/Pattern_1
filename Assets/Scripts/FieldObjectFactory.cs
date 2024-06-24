@@ -25,10 +25,10 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
     public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)
     {       
         GameObject flowerPrefab = Resources.Load<GameObject>("Prefabs/Flower");
-        int randomCoutFlowers = Random.Range(500, 1000);
-               Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
+        
+        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
 
-        for (int i = 0; i < randomCoutFlowers; i++)
+        for (int i = 0; i < numb; i++)
         {        
             GameObject newFlower = GameObject.Instantiate(flowerPrefab);
             newFlower.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));

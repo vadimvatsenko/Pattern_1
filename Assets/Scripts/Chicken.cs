@@ -23,8 +23,13 @@ public class Chicken : Animal
 
     private void Update()
     {
-        RunChicken();
+        
 
+    }
+
+    private void FixedUpdate()
+    {
+        RunChicken();
     }
 
     private void RunChicken()
@@ -42,7 +47,7 @@ public class Chicken : Animal
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
             
-            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * 5f);
+            _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * 5f);
         }
 
         float xClamp = Mathf.Clamp(this._rb.position.x, -_plane._planeWorldSize.x / 2 + 0.5f, _plane._planeWorldSize.x / 2 - 0.5f);

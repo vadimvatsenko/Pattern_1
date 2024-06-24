@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cat : Animal
 {
-    
+    private bool isJump = true;
     public override void Start()
     {
         base.Start();
@@ -23,10 +23,11 @@ public class Cat : Animal
     void Update()
     {
         Movement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
             Debug.Log("Space");
             Jump();
+            isJump = false;
         }
     }
     private void Movement()
@@ -41,6 +42,7 @@ public class Cat : Animal
         if (_moveVector != Vector3.zero) 
         {
             _moveVector = _moveVector.normalized;
+
             _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp) + _moveVector * speed * Time.deltaTime);
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
@@ -54,5 +56,13 @@ public class Cat : Animal
     {
         _rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
         _animator.SetTrigger("jump");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Map")
+        {
+            isJump = true;
+        }
     }
 }
