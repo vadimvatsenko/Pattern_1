@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetPos: {x: -4.5, y: 4.5, z: -4.5}
   moveSpeed: 20
-  smooth: 0.2
+  smooth: 1
 --- !u!1 &1180473194
 GameObject:
   m_ObjectHideFlags: 0
