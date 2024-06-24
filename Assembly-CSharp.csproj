@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Chicken.cs" />
     <Compile Include="Assets\Scripts\FieldObjectFactory.cs" />
     <Compile Include="Assets\VoxelAnimals\Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\FieldClamp.cs" />
     <Compile Include="Assets\Scripts\AnimalAbstractFactory.cs" />
     <Compile Include="Assets\Scripts\Cat.cs" />
     <Compile Include="Assets\Scripts\Healpers.cs" />

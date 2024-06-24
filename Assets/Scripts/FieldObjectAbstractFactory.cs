@@ -8,6 +8,6 @@ public abstract class FieldObjectAbstractFactory : MonoBehaviour
     //public abstract IAsyncEnumerable<GameObject> CreateTrees1();
     public abstract List<GameObject> CreateTrees1();
     public abstract List<GameObject> CreateTrees2();
-    public abstract List<GameObject> CreateFlowers();
+    public abstract IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb);
 
 }

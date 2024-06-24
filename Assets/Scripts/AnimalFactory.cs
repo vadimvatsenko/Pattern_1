@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
 public class AnimalFactory : AnimalAbstractFactory
 {
-    
+    private async Task Start()
+    {
+
+    }
     public override GameObject CreateCat()
     {
         GameObject catPrefab = Resources.Load<GameObject>("Models/Cat"); // если создать папку Resources в Ассетах
@@ -16,40 +20,41 @@ public class AnimalFactory : AnimalAbstractFactory
     }
 
 
-    public override List<GameObject> CreateDog()
+    public override async IAsyncEnumerable<GameObject> CreateDogAsync(int count)
     {
         GameObject dogPrefab = Resources.Load<GameObject>("Models/Dog");
-        List<GameObject> dogList = new List<GameObject>();
         GameObject dogsParent = new GameObject("Dogs");
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < count; i++)
         {
             var goDog = GameObject.Instantiate(dogPrefab);
             goDog.AddComponent<Dog>();
             goDog.AddComponent<DogVision>();
             goDog.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
             goDog.transform.SetParent(dogsParent.transform);
-            dogList.Add(goDog);
+            
+            await Task.Yield();
+
+            yield return goDog;
         }
         
-        return dogList;
     }
-    public override List<GameObject> CreateChickens()
+    
+    public override async IAsyncEnumerable<GameObject> CreateChickensAsync(int count)
     {
         GameObject chickenPrefab = Resources.Load<GameObject>("Models/Chicken");
-        List<GameObject> chickenList = new List<GameObject>();
         GameObject chickenParent = new GameObject("Chickens");
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < count; i++)
         {
             var goChicken = GameObject.Instantiate(chickenPrefab);
             goChicken.AddComponent<Chicken>();
-            goChicken.AddComponent<DogVision>();
             goChicken.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
             goChicken.transform.SetParent(chickenParent.transform);
-            chickenList.Add(goChicken);
-        }
+           
+            await Task.Yield();
 
-        return chickenList;
+            yield return goChicken;
+        }
     }
 }

@@ -22,7 +22,12 @@ public class Cat : Animal
     
     void Update()
     {
-        Movement();          
+        Movement();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space");
+            Jump();
+        }
     }
     private void Movement()
     {
@@ -43,5 +48,11 @@ public class Cat : Animal
             _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed);
         }
         
-    }    
+    }  
+    
+    private void Jump()
+    {
+        _rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
+        _animator.SetTrigger("jump");
+    }
 }

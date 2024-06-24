@@ -48,7 +48,7 @@ public class Dog : Animal
             Quaternion unitRotation = Quaternion.LookRotation(_direction);
             _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed);
         }
-        if (Vector3.Distance(this.transform.position, _randomStep) < 0.2f) SetRandomStep();
+        if (Vector3.Distance(this.transform.localPosition, _randomStep) < 0.2f) SetRandomStep();
 
         /*if (Vector3.Distance(this.transform.position, _catPos.transform.position) < 2f)
         {

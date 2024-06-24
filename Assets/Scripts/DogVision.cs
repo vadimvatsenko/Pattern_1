@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
+//using UnityEditor.UIElements;
 using UnityEngine;
 
 public class DogVision : MonoBehaviour
 {
-    private GameObject _curentHitObject;
+    /*private GameObject _curentHitObject;
     private float _circleRadius;
     private float _maxDistance;
     private TagField _playerTag;
@@ -31,5 +31,5 @@ public class DogVision : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(_origin, _origin + _direction * _currentHitDistance);
-    }
+    }*/
 }

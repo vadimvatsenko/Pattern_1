@@ -8,15 +8,11 @@ using System.Threading;
 
 public class FieldObjectFactory : FieldObjectAbstractFactory
 {
-    Plane _plane;
-    /*Transform _plane;
-    Transform _flowersHolder;
-    Transform _trees1Holder;*/
+    Transform _plane;
 
     private void Start()
     {
-        _plane = new Plane();
-        //Debug.Log(_plane._flowersChildren);
+        _plane = FindObjectOfType<Plane>().transform;
     }
     public override GameObject CreatePlane()
     {
@@ -26,39 +22,21 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
         return plane;
     }
 
-    /*public override async IAsyncEnumerable<GameObject> CreateTrees1()
-    {
-        Debug.Log("Tree");
-        Transform _plane = GameObject.FindWithTag("Map").transform.Find("Flowers");
-        await foreach (var t in ReturnTree1())
-        {
-            t.transform.SetParent(_plane);
-            t.transform.localPosition = new Vector3(Random.Range(0, 30), 0, Random.Range(0, 30));
-            Debug.Log(t);
-            yield return t;
-        }
-    }*/
-
-    public override List<GameObject> CreateFlowers()
-    {
-        
-        Debug.Log("Flowers");
+    public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)
+    {       
         GameObject flowerPrefab = Resources.Load<GameObject>("Prefabs/Flower");
         int randomCoutFlowers = Random.Range(500, 1000);
-        List<GameObject> flowers = new List<GameObject>();
-
-        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
+               Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
 
         for (int i = 0; i < randomCoutFlowers; i++)
         {        
             GameObject newFlower = GameObject.Instantiate(flowerPrefab);
-            //newFlower.transform.position = new Vector3(Random.Range(-_plane._planeWorldSize.x / 2 + 1, _plane._planeWorldSize.x / 2 - 1), 0, Random.Range(-_plane._planeWorldSize.z / 2 + 1, _plane._planeWorldSize.z / 2 - 1));
             newFlower.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
             newFlower.transform.SetParent(flowersHolder);
-            flowers.Add(newFlower);
+            
+            await Task.Yield();
+            yield return newFlower;
         }
-
-        return flowers;
     }
     public override List<GameObject> CreateTrees2()
     {
@@ -105,19 +83,4 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
 
         return trees1List;
     }
-    /*private async IAsyncEnumerable<GameObject> ReturnTree1()
-{
-   Debug.Log("ReturnTree1");
-   GameObject treePrefab = Resources.Load<GameObject>("Prefabs/Tree");
-   int randomCountTree1 = Random.Range(19, 50);
-
-   //await foreach () ;
-
-   for (int i = 0; i < randomCountTree1; i++)
-   {
-       var newTree = GameObject.Instantiate(treePrefab);
-       yield return newTree;           
-   }
-}*/
-
 }
