@@ -7,11 +7,10 @@ using UnityEngine.SocialPlatforms;
 
 public class AnimalFactory : AnimalAbstractFactory
 {
-    private Plane _plane;
+    private Vector3 _plane;
     public void Awake()
     {
-        _plane = FindObjectOfType<Plane>();
-        Debug.Log(_plane.gameObject.name);
+        _plane = GameObject.FindWithTag("Map").GetComponent<Plane>()._planeWorldSize;
     }
     public override GameObject CreateCat()
     {
@@ -31,7 +30,7 @@ public class AnimalFactory : AnimalAbstractFactory
             var goDog = GameObject.Instantiate(dogPrefab);
             goDog.AddComponent<Dog>();
             goDog.AddComponent<DogVision>();
-            goDog.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
+            goDog.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard ));
             goDog.transform.SetParent(dogsParent.transform);
             
             await Task.Yield();
@@ -50,7 +49,7 @@ public class AnimalFactory : AnimalAbstractFactory
         {
             var goChicken = GameObject.Instantiate(chickenPrefab);
             goChicken.AddComponent<Chicken>();
-            goChicken.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
+            goChicken.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
             goChicken.transform.SetParent(chickenParent.transform);
            
             await Task.Yield();

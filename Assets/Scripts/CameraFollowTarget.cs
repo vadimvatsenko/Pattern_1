@@ -10,10 +10,6 @@ public class CameraFollowTarget : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float smooth = 0.2f;
     private Vector3 velocity = Vector3.zero;
-    void Awake()
-    {
-    }
-
     
     private void LateUpdate()
     {

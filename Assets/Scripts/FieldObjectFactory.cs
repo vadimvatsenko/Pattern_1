@@ -7,13 +7,13 @@ using System.Threading;
 
 
 public class FieldObjectFactory : FieldObjectAbstractFactory
-{
+{/*
     Plane _plane;
 
     private void Start()
     {
         _plane = new Plane();
-    }
+    }*/
     public override GameObject CreatePlane()
     {
         GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane); // создание примитивной фигуры
@@ -26,13 +26,11 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
         GameObject flowerPrefab = Resources.Load<GameObject>("Prefabs/Flower");
         
         Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
-
-        
-
+      
         for (int i = 0; i < numb; i++)
         {        
             GameObject newFlower = GameObject.Instantiate(flowerPrefab);
-            newFlower.transform.position = new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
+            newFlower.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
 
             newFlower.transform.SetParent(flowersHolder);
             
@@ -55,7 +53,7 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
         for (int i = 0; i < randomCountTrees2; i++)
         {
             GameObject newTree1 = GameObject.Instantiate(tree2Prefab);
-            newTree1.transform.localPosition = new Vector3(Random.Range(-planeWorldSize.x / 2 + 1, planeWorldSize.x / 2 - 1), 0, Random.Range(-planeWorldSize.z / 2 + 1, planeWorldSize.z / 2 - 1));
+            newTree1.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
             newTree1.transform.SetParent(trees2Holder);
             trees2List.Add(newTree1);
         }

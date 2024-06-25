@@ -10,18 +10,16 @@ public class Dog : Animal
     private Vector3 _randomStep;
     public Vector3 _direction { get; private set; }
     private Transform _catPos;
-    private Transform _dogsParent;
     public override void Start()
     {
         base.Start();
-        _dogsParent = new GameObject("Dogs").transform;
-        this.transform.SetParent(_dogsParent);
         _catPos = FindObjectOfType<Cat>().transform;
-        speed = 5f;
+
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);
         this.tag = "Enemy";
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        speed = 5f;
         _rb.mass = 5f;
 
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Dog/Dog"); // получаем контроллер анимации
@@ -48,9 +46,7 @@ public class Dog : Animal
             Quaternion unitRotation = Quaternion.LookRotation(_direction);
             _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * speed);
         }
-        if (Vector3.Distance(this.transform.localPosition, _randomStep) < 0.2f) SetRandomStep();
-
-        
+        if (Vector3.Distance(this.transform.localPosition, _randomStep) < 0.2f) SetRandomStep();        
     }
 
     private List<Vector3> MoveMatrix()

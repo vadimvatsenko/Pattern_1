@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Chicken : Animal
 {
     private Transform _catPos;
-
+    private GameObject _dogsPos;
     private float _jumpForce;
     private float _enemyMaxDistance;
     public override void Start()
     {
         base.Start();       
         _catPos = FindObjectOfType<Cat>().transform;
-
+        _dogsPos = GameObject.FindGameObjectWithTag("Enemy");
+        
         this.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         this._collader.center = new Vector3(0f, 0.5f, 0f);
 
@@ -47,8 +49,8 @@ public class Chicken : Animal
             _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * 30f));
         }
 
-        float xClamp = Mathf.Clamp(this._rb.position.x, -_plane._planeWorldSize.x / 2 + 0.5f, _plane._planeWorldSize.x / 2 - 0.5f);
-        float zClamp = Mathf.Clamp(this._rb.position.z, -_plane._planeWorldSize.z / 2 + 0.5f, _plane._planeWorldSize.z / 2 - 0.5f);
+        float xClamp = Mathf.Clamp(this._rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
+        float zClamp = Mathf.Clamp(this._rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
 
         _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp));
     }

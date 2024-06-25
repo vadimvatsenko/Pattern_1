@@ -73,7 +73,7 @@
     <Compile Include="Assets\Scripts\FieldClamp.cs" />
     <Compile Include="Assets\Scripts\AnimalAbstractFactory.cs" />
     <Compile Include="Assets\Scripts\Cat.cs" />
-    <Compile Include="Assets\Scripts\Healpers.cs" />
+    <Compile Include="Assets\Scripts\StaticFields.cs" />
     <Compile Include="Assets\Scripts\Animal.cs" />
     <Compile Include="Assets\Scripts\DogVision.cs" />
   </ItemGroup>
