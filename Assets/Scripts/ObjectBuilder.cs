@@ -30,9 +30,9 @@ public class ObjectBuilder : MonoBehaviour
 
     private async Task InitializeFieldObjects()
     {
-        await foreach (var ch in _factory.CreateChickensAsync(200)) ;
-
         await foreach (var dog in _factory.CreateDogAsync(5)) ;
+
+        await foreach (var ch in _factory.CreateChickensAsync(200)) ;
 
         await foreach (var tree1 in _fieldObjectFactory.CreateTrees1Async(Random.Range(20, 30))) ;
 

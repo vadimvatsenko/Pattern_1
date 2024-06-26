@@ -34,10 +34,7 @@ public class Cat : Animal
             Jump();
             isJump = false;
         }
-        if (isDead) 
-        {
-            _animator.SetTrigger("IsDead");
-        }
+       
     }
     private void Movement()
     {
@@ -82,12 +79,6 @@ public class Cat : Animal
         {
             isJump = true;
         }
-        if(collision.gameObject.tag == "Enemy")
-        {
-            isDead = true;
-            //Destroy(gameObject);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        }
+        
     }
 }

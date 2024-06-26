@@ -8,7 +8,8 @@ public class Dog : Animal
 {
     private List<Vector3> _matrix;
     private Vector3 _randomStep;
-    public Vector3 _direction { get; private set; }
+    private Vector3 _direction;
+    private Vector3 _clampPos;
     private Transform _catPos;
 
     private bool isPatrol = true;
@@ -19,10 +20,11 @@ public class Dog : Animal
         base.Start();
         _catPos = FindObjectOfType<Cat>().transform;
 
+        
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);
-        this.tag = "Enemy";
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        this.tag = "Enemy";
         _speed = 4f;
         _rb.mass = 5f;
 
@@ -35,7 +37,8 @@ public class Dog : Animal
 
     private void Update()
     {
-        if(Vector3.Distance(_rb.position, _catPos.position) < 7f)
+        _clampPos = new Vector3(Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard), _rb.position.y, Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard));
+        if (Vector3.Distance(_rb.position, _catPos.position) < 7f)
         {
             isChase = true;
             isPatrol = false;
@@ -60,9 +63,10 @@ public class Dog : Animal
 
     private void Movement()
     {
-        
+        _speed = 5f;
         _direction = (_randomStep - _rb.position).normalized;
-        _rb.MovePosition(Vector3.MoveTowards(_rb.position, _randomStep, _speed * Time.fixedDeltaTime));
+        
+        _rb.MovePosition(Vector3.MoveTowards(_clampPos, _randomStep, _speed * Time.fixedDeltaTime));
 
         _animator.SetBool("IsWalk", _direction != Vector3.zero);
 
@@ -71,7 +75,7 @@ public class Dog : Animal
             Quaternion unitRotation = Quaternion.LookRotation(_direction);
             _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * _speed);
         }
-        if (Vector3.Distance(this.transform.localPosition, _randomStep) < 0.2f) SetRandomStep();        
+        if (Vector3.Distance(_rb.position, _randomStep) < 0.2f) SetRandomStep();        
     }
 
     private void ChaseCat()
@@ -80,14 +84,14 @@ public class Dog : Animal
         if (Vector3.Distance(this.transform.position, _catPos.position) < 7f)
         {
             _speed = 6f;
-            _rb.MovePosition(Vector3.MoveTowards(_rb.position, _catPos.position, _speed * Time.fixedDeltaTime));
+            _rb.MovePosition(Vector3.MoveTowards(_clampPos, _catPos.position, _speed * Time.fixedDeltaTime));
             if (_direction != Vector3.zero)
             {
                 Quaternion unitRotation = Quaternion.LookRotation(_direction);
                 _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * _speed);
             }
         }
-        else if (Vector3.Distance(this.transform.position, _catPos.position) > 7f)
+        else if (Vector3.Distance(_rb.position, _catPos.position) > 7f)
         {
             isPatrol = true;
         }
@@ -115,8 +119,6 @@ public class Dog : Animal
             _randomStep = _matrix[randomIndex];
         }
     }
-
-    
 
     private void OnCollisionEnter(Collision collision)
     {

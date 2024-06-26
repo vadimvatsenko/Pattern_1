@@ -4,14 +4,14 @@ using UnityEngine;
 public class Chicken : Animal
 {
     private Transform _catPos;
-    private GameObject _dogsPos;
+    private GameObject[] _dogsPos;
     private float _jumpForce;
     private float _enemyMaxDistance;
     public override void Start()
     {
         base.Start();       
         _catPos = FindObjectOfType<Cat>().transform;
-        _dogsPos = GameObject.FindGameObjectWithTag("Enemy");
+        _dogsPos = GameObject.FindGameObjectsWithTag("Enemy");
         
         this.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         this._collader.center = new Vector3(0f, 0.5f, 0f);
@@ -27,20 +27,29 @@ public class Chicken : Animal
     private void FixedUpdate()
     {
         RunChicken();
+        
     }
 
     private void RunChicken()
     {
         AnimalContactWithChickens(_catPos);
+
+        if (_dogsPos != null)
+        {
+            foreach (GameObject d in _dogsPos)
+            {
+                AnimalContactWithChickens(d.transform);
+            }
+        }
+        
     }
 
     private void AnimalContactWithChickens(Transform animal)
     {
-        _moveVector = (this.transform.localPosition - animal.localPosition).normalized;
-
+        _moveVector = (this.transform.localPosition - animal.transform.localPosition).normalized;
         if ((Vector3.Distance(this.transform.localPosition, animal.transform.localPosition) < _enemyMaxDistance))
         {
-            _rb.AddForce(new Vector3(0, _jumpForce, 0) + _moveVector * _jumpForce, ForceMode.Impulse);
+            _rb.AddForce(new Vector3(0, _jumpForce, 0) + _moveVector, ForceMode.Impulse);
             _animator.SetTrigger("jump");
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
