@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cat : Animal
 {
     Camera _mainCamera;
     private bool isJump = true;
+    private bool isDead = false;
     public override void Start()
     {
         base.Start();
 
         _mainCamera = Camera.main;
-        speed = 5f;
+        _speed = 5f;
         _pos = new Vector3(0f, 5f, 0f);
 
         this.transform.position = _pos;
@@ -31,6 +33,10 @@ public class Cat : Animal
         {
             Jump();
             isJump = false;
+        }
+        if (isDead) 
+        {
+            _animator.SetTrigger("IsDead");
         }
     }
     private void Movement()
@@ -56,11 +62,11 @@ public class Cat : Animal
 
         if (_moveVector != Vector3.zero) 
         {
-            _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp) + _moveVector * speed * Time.deltaTime);
+            _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp) + _moveVector * _speed * Time.deltaTime);
 
             Quaternion unitRotation = Quaternion.LookRotation(new Vector3(_moveVector.x, _moveVector.y, _moveVector.z));
 
-            _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * speed));
+            _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * _speed));
         }        
     }  
     
@@ -75,6 +81,13 @@ public class Cat : Animal
         if (collision.gameObject.tag == "Map")
         {
             isJump = true;
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            isDead = true;
+            //Destroy(gameObject);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
     }
 }

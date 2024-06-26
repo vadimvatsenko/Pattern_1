@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Animal: MonoBehaviour
 {
     private protected Plane _plane;
-    private protected float speed;
+    private protected float _speed;
     private protected Rigidbody _rb;
     private protected Animator _animator;
     private protected RuntimeAnimatorController _animatorController;

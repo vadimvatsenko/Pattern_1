@@ -7,7 +7,7 @@ public class ObjectBuilder : MonoBehaviour
 {
     private AnimalFactory _factory;
     private FieldObjectFactory _fieldObjectFactory;
-    private List<GameObject> _createdObjects = new List<GameObject>(); // список который будет хранить все объекты которые нужно создать; 
+    private bool isDestroy = false;
 
     private void Awake()
     {
@@ -15,10 +15,7 @@ public class ObjectBuilder : MonoBehaviour
         _fieldObjectFactory = new FieldObjectFactory();
 
         _fieldObjectFactory.CreatePlane();
-        _factory.CreateCat();       
-       
-        _fieldObjectFactory.CreateTrees1();
-        _fieldObjectFactory.CreateTrees2();        
+        _factory.CreateCat();
     }
 
     private async void Start()
@@ -28,46 +25,23 @@ public class ObjectBuilder : MonoBehaviour
 
     private void OnDisable()
     {
-        DestroyGameObject();
+        isDestroy = true;
     }
 
     private async Task InitializeFieldObjects()
     {
-        /*await foreach (var ch in _factory.CreateChickensAsync(200)) ;
+        await foreach (var ch in _factory.CreateChickensAsync(200)) ;
+
         await foreach (var dog in _factory.CreateDogAsync(5)) ;
-        await foreach (var flow in _fieldObjectFactory.CreateFlowersAsync(500)) ;    */
-        await foreach (var ch in _factory.CreateChickensAsync(200))
-        {
-            AddCreatedObject(ch);
-        }
-        await foreach (var dog in _factory.CreateDogAsync(5))
-        {
-            AddCreatedObject(dog);
-        }
-        await foreach (var flow in _fieldObjectFactory.CreateFlowersAsync(500))
-        {
-            AddCreatedObject(flow);
-        }       
-    }
 
-    private void AddCreatedObject(GameObject gameObject)
-    {
-        if (gameObject == null)
-        {
-            _createdObjects.Add(gameObject);
-        }
-    }
+        await foreach (var tree1 in _fieldObjectFactory.CreateTrees1Async(Random.Range(20, 30))) ;
 
-    private void DestroyGameObject()
-    {
-        foreach (var obj in _createdObjects)
-        {
-            if(obj != null)
-            {
-                Destroy(obj);
-            }
-        }
+        await foreach (var tree2 in _fieldObjectFactory.CreateTrees2Async(Random.Range(20, 30))) ;
 
-        _createdObjects.Clear();
+        await foreach (var flow in _fieldObjectFactory.CreateFlowersAsync(500)) ;
+        
     }
 }
+    
+   
+
