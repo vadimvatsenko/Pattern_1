@@ -40,8 +40,7 @@ public class Chicken : Animal
             {
                 AnimalContactWithChickens(d.transform);
             }
-        }
-        
+        }        
     }
 
     private void AnimalContactWithChickens(Transform animal)
