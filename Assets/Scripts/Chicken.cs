@@ -56,9 +56,9 @@ public class Chicken : Animal
             _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * 30f));
         }
 
-        float xClamp = Mathf.Clamp(this._rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
-        float zClamp = Mathf.Clamp(this._rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
+        float xClamp = Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
+        float zClamp = Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
 
-        _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp));
+        _rb.MovePosition(new Vector3(xClamp, _rb.position.y, zClamp));
     }
 }

@@ -33,8 +33,7 @@ public class Cat : Animal
         {
             Jump();
             isJump = false;
-        }
-       
+        }      
     }
     private void Movement()
     {
@@ -59,7 +58,7 @@ public class Cat : Animal
 
         if (_moveVector != Vector3.zero) 
         {
-            _rb.MovePosition(new Vector3(xClamp, this._rb.position.y, zClamp) + _moveVector * _speed * Time.deltaTime);
+            _rb.MovePosition(new Vector3(xClamp, _rb.position.y, zClamp) + _moveVector * _speed * Time.deltaTime);
 
             Quaternion unitRotation = Quaternion.LookRotation(new Vector3(_moveVector.x, _moveVector.y, _moveVector.z));
 
