@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Cat : Animal
 {
     Camera _mainCamera;
+    private float _dathTime;
     private bool isJump = true;
     private bool isDead = false;
     public override void Start()
@@ -15,6 +17,7 @@ public class Cat : Animal
 
         _mainCamera = Camera.main;
         _speed = 5f;
+        _dathTime = 3f;
         _pos = new Vector3(0f, 5f, 0f);
 
         this.transform.position = _pos;
@@ -25,16 +28,39 @@ public class Cat : Animal
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Cat/Cat"); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
     }
-    
-    void Update()
+
+    private void Update()
+    {
+       _dathTime -= Time.deltaTime;
+    }
+
+    private void FixedUpdate()
     {
         Movement();
+
         if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
             Jump();
             isJump = false;
-        }      
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _dathTime <= 0)
+        {
+            Dash();
+            _dathTime = 3f;
+        }
+
+        if (isDead)
+        {
+            StartCoroutine(CatDeath());
+        }
     }
+
+    private void Dash()
+    {
+        _rb.AddForce(_moveVector * 10f, ForceMode.Impulse);
+    }
+
     private void Movement()
     {
         Vector3 forward = _mainCamera.transform.forward; // направление камеры вперёд
@@ -42,9 +68,9 @@ public class Cat : Animal
 
         forward.y = 0f; // Убираем компоненту по оси Y, чтобы движение было только по X и Z
         right.y = 0f;
-
+/*
         forward.Normalize(); // нормализуем вектора 
-        right.Normalize();
+        right.Normalize();*/
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -60,7 +86,7 @@ public class Cat : Animal
         {
             _rb.MovePosition(new Vector3(xClamp, _rb.position.y, zClamp) + _moveVector * _speed * Time.deltaTime);
 
-            Quaternion unitRotation = Quaternion.LookRotation(new Vector3(_moveVector.x, _moveVector.y, _moveVector.z));
+            Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
 
             _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * _speed));
         }        
@@ -74,10 +100,23 @@ public class Cat : Animal
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Map")
+        if (collision.gameObject.GetComponent<Plane>())
         {
             isJump = true;
         }
-        
+
+        if(collision.gameObject.GetComponent<Dog>())
+        {
+            isDead = true;
+        }        
+    }
+
+    private IEnumerator CatDeath()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

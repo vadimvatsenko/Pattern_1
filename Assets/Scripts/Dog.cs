@@ -20,7 +20,6 @@ public class Dog : Animal
         base.Start();
         _catPos = FindObjectOfType<Cat>().transform;
 
-        
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
@@ -37,21 +36,30 @@ public class Dog : Animal
 
     private void Update()
     {
-        _clampPos = new Vector3(Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard), _rb.position.y, Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard));
-        if (Vector3.Distance(_rb.position, _catPos.position) < 7f)
+        _clampPos = new Vector3(Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard),
+                                            _rb.position.y, 
+                                Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard));
+
+        if (_catPos != null) 
         {
-            isChase = true;
-            isPatrol = false;
-        } else 
-        {
-            isChase= false;
-            isPatrol = true;
+            if (Vector3.Distance(_rb.position, _catPos.position) < 7f)
+            {
+                isChase = true;
+                isPatrol = false;
+            }
+            else
+            {
+                isChase = false;
+                isPatrol = true;
+            }
         }
+
+        
     }
 
     private void FixedUpdate()
     {
-        if (isChase) 
+        if (isChase)
         {
             ChaseCat();
         }
@@ -80,21 +88,29 @@ public class Dog : Animal
 
     private void ChaseCat()
     {
-        _direction = (_catPos.position - _rb.position).normalized;
-        if (Vector3.Distance(this.transform.position, _catPos.position) < 7f)
+        if(_catPos != null)
         {
-            _speed = 6f;
-            _rb.MovePosition(Vector3.MoveTowards(_clampPos, _catPos.position, _speed * Time.fixedDeltaTime));
-            if (_direction != Vector3.zero)
+            _direction = (_catPos.position - _rb.position).normalized;
+            _speed = 5.5f;
+            if (Vector3.Distance(this.transform.position, _catPos.position) < 7f)
             {
-                Quaternion unitRotation = Quaternion.LookRotation(_direction);
-                _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * _speed);
+                _speed = 6f;
+                _rb.MovePosition(Vector3.MoveTowards(_clampPos, _catPos.position, _speed * Time.fixedDeltaTime));
+                if (_direction != Vector3.zero)
+                {
+                    Quaternion unitRotation = Quaternion.LookRotation(_direction);
+                    _rb.rotation = Quaternion.Lerp(_rb.rotation, unitRotation, Time.fixedDeltaTime * _speed);
+                }
             }
-        }
-        else if (Vector3.Distance(_rb.position, _catPos.position) > 7f)
+            else if (Vector3.Distance(_rb.position, _catPos.position) > 7f)
+            {
+                isPatrol = true;
+            }
+        } else 
         {
             isPatrol = true;
         }
+        
     }
 
     private List<Vector3> MoveMatrix()

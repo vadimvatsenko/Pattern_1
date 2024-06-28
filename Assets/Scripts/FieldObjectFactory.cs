@@ -18,7 +18,7 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
     public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)
     {       
         GameObject flowerPrefab = Resources.Load<GameObject>("Prefabs/Flower");        
-        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find("Flowers").transform;
+        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find(StaticFields.Flowers).transform;
       
         for (int i = 0; i < numb; i++)
         {        

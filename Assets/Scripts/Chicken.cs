@@ -9,8 +9,13 @@ public class Chicken : Animal
     private float _enemyMaxDistance;
     public override void Start()
     {
-        base.Start();       
-        _catPos = FindObjectOfType<Cat>().transform;
+        base.Start();
+
+        if(FindObjectOfType<Cat>() != null)
+        {
+            _catPos = FindObjectOfType<Cat>().transform;
+        }
+        
         _dogsPos = GameObject.FindGameObjectsWithTag("Enemy");
         
         this.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
@@ -32,7 +37,10 @@ public class Chicken : Animal
 
     private void RunChicken()
     {
-        AnimalContactWithChickens(_catPos);
+        if(_catPos != null)
+        {
+            AnimalContactWithChickens(_catPos);
+        }
 
         if (_dogsPos != null)
         {

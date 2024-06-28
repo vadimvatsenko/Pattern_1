@@ -9,9 +9,10 @@ public class StaticFields : MonoBehaviour
     public static float RightBoard;
     public static float TopBoard;
     public static float BottomBoard;
+    public static string Flowers => "Flowers";
     void Start()
     {
-        _plane = GameObject.FindWithTag("Map");
+        _plane = FindAnyObjectByType<Plane>().gameObject;
         LeftBoard = _plane.GetComponent<Plane>()._planeWorldSize.x * -1f / 2 + 0.5f;
         RightBoard = _plane.GetComponent<Plane>()._planeWorldSize.x / 2 - 0.5f;
         TopBoard = _plane.GetComponent<Plane>()._planeWorldSize.z * -1f / 2 + 0.5f;
