@@ -6,7 +6,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Cat : Animal
-{
+{   /*public delegate bool IsCatDead(bool status);
+    public event IsCatDead? status; // полное название делегата и события,*/
+
+    public static Action onCatDeadMessage; // краткое название делегата c приставкой On - негласное правило
+
     Camera _mainCamera;
     private float _dathTime;
     private bool isJump = true;
@@ -27,6 +31,11 @@ public class Cat : Animal
 
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Cat/Cat"); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     private void Update()
@@ -50,10 +59,6 @@ public class Cat : Animal
             _dathTime = 3f;
         }
 
-        if (isDead)
-        {
-            StartCoroutine(CatDeath());
-        }
     }
 
     private void Dash()
@@ -108,15 +113,20 @@ public class Cat : Animal
         if(collision.gameObject.GetComponent<Dog>())
         {
             isDead = true;
+            StartCoroutine(CatDeath(isDead));
         }        
     }
 
-    private IEnumerator CatDeath()
+    private IEnumerator CatDeath(bool isDeadCat)
     {
-        yield return new WaitForSeconds(3);
-        Destroy(gameObject);
 
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (isDeadCat) 
+        {       
+            
+            transform.position = Vector3.up * 5f;
+            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(3);
+            Destroy(gameObject);
+        }
     }
 }
