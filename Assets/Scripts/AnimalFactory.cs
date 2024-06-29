@@ -46,6 +46,8 @@ public class AnimalFactory : AnimalAbstractFactory
             CreateAnimals(chickenPrefab, chickenParent, count, Chicken as Type) 
             };*/
 
+        
+
 
         for (int i = 0; i < count; i++)
         {
@@ -59,10 +61,10 @@ public class AnimalFactory : AnimalAbstractFactory
             yield return goChicken;
         }
     }
-    
+
     /*private async Task CreateAnimals(GameObject animal, GameObject parent, int count, object script)
     {
-        
+
         for (int i = 0; i < count; i++)
         {
 
