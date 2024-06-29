@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 // Синглтон в Unity
 public class GameManager : MonoBehaviour // это Синглтон
 {
-    public static Action onIsCatDead;
     public static GameManager _instance { get; private set; }
     private void Awake() // создаем его в Awake
     {
@@ -21,11 +20,18 @@ public class GameManager : MonoBehaviour // это Синглтон
         Destroy(this.gameObject); // уничтожает дубль, если есть такой
     }
 
-    private void Reset()
+    private void OnEnable()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Events.gameReset += Reload;
     }
 
+    private void OnDisable()
+    {
+        Events.gameReset -= Reload;
+    }
 
-        
+    private void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }        
 }

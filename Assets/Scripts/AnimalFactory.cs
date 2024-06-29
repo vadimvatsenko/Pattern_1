@@ -8,6 +8,22 @@ using UnityEngine;
 
 public class AnimalFactory : AnimalAbstractFactory
 {
+
+    CancellationTokenSource cancelTokenSource;
+    CancellationToken token;
+
+    private void Start()
+    {
+        cancelTokenSource = new CancellationTokenSource();
+        token = cancelTokenSource.Token;
+    }
+
+    private void OnApplicationQuit() // закрытие всех потоков, при выход
+    {
+        cancelTokenSource.Cancel();
+        cancelTokenSource.Dispose();
+    }
+
     public override GameObject CreateCat()
     {
         
@@ -36,17 +52,11 @@ public class AnimalFactory : AnimalAbstractFactory
             yield return goDog;
         }        
     }
-    
+
     public override async IAsyncEnumerable<GameObject> CreateChickensAsync(int count)
     {
         GameObject chickenPrefab = Resources.Load<GameObject>("Models/Chicken");
         GameObject chickenParent = new GameObject("Chickens");
-
-        /*await Task.Run(() => { 
-            CreateAnimals(chickenPrefab, chickenParent, count, Chicken as Type) 
-            };*/
-
-        
 
 
         for (int i = 0; i < count; i++)
@@ -59,23 +69,8 @@ public class AnimalFactory : AnimalAbstractFactory
             await Task.Yield();
 
             yield return goChicken;
+
+
         }
     }
-
-    /*private async Task CreateAnimals(GameObject animal, GameObject parent, int count, object script)
-    {
-
-        for (int i = 0; i < count; i++)
-        {
-
-            var goChicken = GameObject.Instantiate(animal);
-            goChicken.AddComponent(script);
-            goChicken.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
-            goChicken.transform.SetParent(parent.transform);
-
-            await Task.Yield();
-
-            yield return goChicken;
-        }
-    }*/
 }

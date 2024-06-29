@@ -33,10 +33,7 @@ public class Cat : Animal
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
     }
 
-    private void OnEnable()
-    {
-        
-    }
+    
 
     private void Update()
     {
@@ -121,12 +118,16 @@ public class Cat : Animal
     {
 
         if (isDeadCat) 
-        {       
-            
-            transform.position = Vector3.up * 5f;
-            yield return new WaitForSeconds(10);
-            yield return new WaitForSeconds(3);
+        {
+
+            /*transform.position = Vector3.up * 5f;
+            yield return new WaitForSeconds(10);*/
+
+            yield return new WaitForSeconds(5);
+
             Destroy(gameObject);
+
+            Events.InvokeGameReset();
         }
     }
 }
