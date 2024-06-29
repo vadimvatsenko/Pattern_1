@@ -33,8 +33,6 @@ public class Cat : Animal
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
     }
 
-    
-
     private void Update()
     {
        _dathTime -= Time.deltaTime;
@@ -110,24 +108,12 @@ public class Cat : Animal
         if(collision.gameObject.GetComponent<Dog>())
         {
             isDead = true;
-            StartCoroutine(CatDeath(isDead));
+            CatDeath();
         }        
     }
 
-    private IEnumerator CatDeath(bool isDeadCat)
+    private void  CatDeath()
     {
-
-        if (isDeadCat) 
-        {
-
-            /*transform.position = Vector3.up * 5f;
-            yield return new WaitForSeconds(10);*/
-
-            yield return new WaitForSeconds(5);
-
-            Destroy(gameObject);
-
-            Events.InvokeGameReset();
-        }
+        Events.InvokeGameReset(gameObject);
     }
 }

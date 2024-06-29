@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class Events
 {
-    public delegate void IsCatDead(bool isDead);
-    public static event IsCatDead? isCatDead;
-
-    public delegate void GameReset();
+   
+    public delegate void GameReset(GameObject cat);
     public static event GameReset? gameReset;
 
-    public static void InvokeIsCatDead(bool isDead)
+    public static void InvokeGameReset(GameObject cat)
     {
-        isCatDead?.Invoke(isDead);
-    }
-
-    public static void InvokeGameReset()
-    {
-        gameReset?.Invoke();
+        gameReset?.Invoke(cat);
     }
 }

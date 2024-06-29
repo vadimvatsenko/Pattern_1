@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 // Синглтон в Unity
 public class GameManager : MonoBehaviour // это Синглтон
 {
+
     public static GameManager _instance { get; private set; }
     private void Awake() // создаем его в Awake
     {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour // это Синглтон
         Events.gameReset -= Reload;
     }
 
-    private void Reload()
+    private void Reload(GameObject cat)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }        

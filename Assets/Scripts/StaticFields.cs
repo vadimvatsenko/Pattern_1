@@ -9,7 +9,14 @@ public class StaticFields : MonoBehaviour
     public static float RightBoard;
     public static float TopBoard;
     public static float BottomBoard;
-    public static string Flowers => "Flowers";
+
+    public static string FlowersPath => "Prefabs/Flower";
+    public static string FlowersHolder => "Flowers";
+    public static string Trees1Path => "Prefabs/Tree1";
+    public static string Trees1Holder => "Trees1";
+    public static string Trees2Path = "Prefabs/Tree2";
+    public static string Trees2Holder = "Trees2";
+
     void Start()
     {
         _plane = FindAnyObjectByType<Plane>().gameObject;

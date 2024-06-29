@@ -8,7 +8,7 @@ using System.Threading;
 
 public class ObjectBuilder : MonoBehaviour
 {
-    CancellationTokenSource cancelTokenSource; // 
+    CancellationTokenSource cancelTokenSource;
     CancellationToken token;
     Task task;
 
@@ -26,7 +26,6 @@ public class ObjectBuilder : MonoBehaviour
 
         cancelTokenSource = new CancellationTokenSource();
         token = cancelTokenSource.Token;
-
         task = ReadAsyncEnumerable(InitializeFieldObjects(cancelTokenSource.Token), cancelTokenSource.Token);
 
         try
@@ -44,7 +43,7 @@ public class ObjectBuilder : MonoBehaviour
     private void OnApplicationQuit() // закрытие всех потоков, при выход
     {
         cancelTokenSource.Cancel();
-        cancelTokenSource.CancelAfter(500);
+        cancelTokenSource.CancelAfter(0);
         cancelTokenSource.Dispose();
     }
 
@@ -55,7 +54,6 @@ public class ObjectBuilder : MonoBehaviour
         {
             cancellationToken.ThrowIfCancellationRequested();
             yield return flow.gameObject;
-            //cancellationToken.ThrowIfCancellationRequested();
         }
         await foreach (var dog in _factory.CreateDogAsync(5))
         {
@@ -78,7 +76,7 @@ public class ObjectBuilder : MonoBehaviour
             yield return tree2.gameObject;
         }
 
-        await Task.Delay(100, cancellationToken);
+        await Task.Delay(0, cancellationToken);
 
     }
 

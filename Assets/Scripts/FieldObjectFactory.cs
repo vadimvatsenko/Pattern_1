@@ -17,8 +17,8 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
 
     public override async IAsyncEnumerable<GameObject> CreateFlowersAsync(int numb)
     {       
-        GameObject flowerPrefab = Resources.Load<GameObject>("Prefabs/Flower");        
-        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find(StaticFields.Flowers).transform;
+        GameObject flowerPrefab = Resources.Load<GameObject>(StaticFields.FlowersPath);        
+        Transform flowersHolder = FindObjectOfType<Plane>().transform.Find(StaticFields.FlowersHolder).transform;
       
         for (int i = 0; i < numb; i++)
         {        
@@ -34,8 +34,8 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
 
     public override async IAsyncEnumerable<GameObject> CreateTrees1Async(int numb)
     {
-        GameObject tree1Prefab = Resources.Load<GameObject>("Prefabs/Tree1");
-        Transform trees1Holder = GameObject.FindGameObjectWithTag("Map").transform.Find("Trees1");
+        GameObject tree1Prefab = Resources.Load<GameObject>(StaticFields.Trees1Path);
+        Transform trees1Holder = GameObject.FindGameObjectWithTag("Map").transform.Find(StaticFields.Trees1Holder);
 
         for (int i = 0; i < numb; i++)
         {
@@ -49,17 +49,25 @@ public class FieldObjectFactory : FieldObjectAbstractFactory
     }
     public override async IAsyncEnumerable<GameObject> CreateTrees2Async(int numb)
     {
-        GameObject tree2Prefab = Resources.Load<GameObject>("Prefabs/Tree2");
-        Transform trees2Holder = GameObject.FindGameObjectWithTag("Map").transform.Find("Trees2");
+        GameObject tree2Prefab = Resources.Load<GameObject>(StaticFields.Trees2Path);
+        Transform trees2Holder = GameObject.FindGameObjectWithTag("Map").transform.Find(StaticFields.Trees2Holder);
+        //await Task.Yield();
         
-        for (int i = 0; i < numb; i++)
+        await foreach(var t in CreateObjects(tree2Prefab, trees2Holder, numb))
         {
-            GameObject newTree2 = GameObject.Instantiate(tree2Prefab);
-            newTree2.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
-            newTree2.transform.SetParent(trees2Holder);
+            yield return t;
+        }       
+    }
 
+    public async IAsyncEnumerable<GameObject> CreateObjects(GameObject prefab, Transform objectHolder, int count) 
+    {
+        for (int i = 0; i < count; i++) 
+        {
+            GameObject newObject = GameObject.Instantiate(prefab);
+            newObject.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard));
+            newObject.transform.SetParent(objectHolder);
             await Task.Yield();
-            yield return newTree2;    
+            yield return newObject;
         }
     }
 }
