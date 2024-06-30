@@ -9,27 +9,11 @@ using UnityEngine;
 public class AnimalFactory : AnimalAbstractFactory
 {
 
-    CancellationTokenSource cancelTokenSource;
-    CancellationToken token;
-
-    private void Start()
-    {
-        cancelTokenSource = new CancellationTokenSource();
-        token = cancelTokenSource.Token;
-    }
-
-    private void OnApplicationQuit() // закрытие всех потоков, при выход
-    {
-        cancelTokenSource.Cancel();
-        cancelTokenSource.Dispose();
-    }
-
     public override GameObject CreateCat()
-    {
-        
+    {        
         GameObject catPrefab = Resources.Load<GameObject>("Models/Cat"); // если создать папку Resources в Ассетах
         GameObject goCat = GameObject.Instantiate(catPrefab);
-        goCat.AddComponent<Cat>(); 
+        goCat.AddComponent<Player>(); 
         return goCat;
     }
 
@@ -37,8 +21,6 @@ public class AnimalFactory : AnimalAbstractFactory
     {
         GameObject dogPrefab = Resources.Load<GameObject>("Models/Dog"); // в статику вынести
         GameObject dogsParent = new GameObject("Dogs");
-
-
 
         for (int i = 0; i < count; i++)
         {

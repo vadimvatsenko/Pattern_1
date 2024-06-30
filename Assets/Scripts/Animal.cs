@@ -7,11 +7,11 @@ public abstract class Animal: MonoBehaviour
 {
     private protected Plane _plane;
     private protected float _speed;
-    private protected Rigidbody _rb;
-    private protected Animator _animator;
+    public Rigidbody _rb { get; private set; }
+    public  Animator _animator { get; private set; }
     private protected RuntimeAnimatorController _animatorController;
     private protected BoxCollider _collader;
-    private protected Vector3 _moveVector;
+    public  Vector3 _moveVector { get; protected set; }
     private protected Vector3 _pos;
 
     public virtual void Start()

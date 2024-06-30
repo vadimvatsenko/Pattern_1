@@ -6,12 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Cat : Animal
-{   /*public delegate bool IsCatDead(bool status);
-    public event IsCatDead? status; // полное название делегата и события,*/
-
-    public static Action onCatDeadMessage; // краткое название делегата c приставкой On - негласное правило
-
-    Camera _mainCamera;
+{   
+    /*Camera _mainCamera;*/
     private float _dathTime;
     private bool isJump = true;
     private bool isDead = false;
@@ -19,15 +15,15 @@ public class Cat : Animal
     {
         base.Start();
 
-        _mainCamera = Camera.main;
+        /*_mainCamera = Camera.main;*/
         _speed = 5f;
         _dathTime = 3f;
-        _pos = new Vector3(0f, 5f, 0f);
+        /*_pos = new Vector3(0f, 5f, 0f);
 
         this.transform.position = _pos;
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);
-        this.tag = "Player";
+        this.tag = "Player";*/
 
         _animatorController = Resources.Load<RuntimeAnimatorController>("Animation/Cat/Cat"); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
@@ -40,7 +36,7 @@ public class Cat : Animal
 
     private void FixedUpdate()
     {
-        Movement();
+        /*Movement();*/
 
         if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
@@ -61,16 +57,16 @@ public class Cat : Animal
         _rb.AddForce(_moveVector * 10f, ForceMode.Impulse);
     }
 
-    private void Movement()
+    /*private void Movement()
     {
         Vector3 forward = _mainCamera.transform.forward; // направление камеры вперёд
         Vector3 right = _mainCamera.transform.right; // направление камеры в право
 
         forward.y = 0f; // Убираем компоненту по оси Y, чтобы движение было только по X и Z
         right.y = 0f;
-/*
+*//*
         forward.Normalize(); // нормализуем вектора 
-        right.Normalize();*/
+        right.Normalize();*//*
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -90,7 +86,7 @@ public class Cat : Animal
 
             _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * _speed));
         }        
-    }  
+    }  */
     
     private void Jump()
     {

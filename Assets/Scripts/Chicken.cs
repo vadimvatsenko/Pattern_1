@@ -11,9 +11,9 @@ public class Chicken : Animal
     {
         base.Start();
 
-        if(FindObjectOfType<Cat>() != null)
+        if(FindObjectOfType<Player>() != null)
         {
-            _catPos = FindObjectOfType<Cat>().transform;
+            _catPos = FindObjectOfType<Player>().transform;
         }
         
         _dogsPos = GameObject.FindGameObjectsWithTag("Enemy");
