@@ -7,11 +7,11 @@ public class PlayerState
     protected PlayerStateMachine _stateMachine;
     protected Player _player;
     protected Rigidbody _rb;
+    public Vector3 _moveVector {  get; protected set; }
     private string _animBoolName;
 
-    protected float horizontal;
-    private float vertical;
-
+    protected Vector3 _input;
+    public Camera _mainCamera;
     public PlayerState(Player player, PlayerStateMachine stateMachine, string animBoolName)
     {
         _player = player;
@@ -23,13 +23,27 @@ public class PlayerState
     {
         _player._animator.SetBool(_animBoolName, true);
         _rb = _player._rb;
+        _moveVector = _player._moveVector;
+        _mainCamera = Camera.main;
     }
 
     public virtual void Update()
     {
         Debug.Log($"I am in {_animBoolName}");
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        _input = new Vector3(horizontal, 0, vertical);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _stateMachine.ChangeState(_player._jumpState);
+        }
+
+        if (_input != Vector3.zero)
+        {
+            _stateMachine.ChangeState(_player._moveState);
+        }
     }
 
     public virtual void Exit() 

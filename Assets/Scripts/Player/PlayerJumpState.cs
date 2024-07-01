@@ -11,6 +11,7 @@ public class PlayerJumpState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        Jump();
     }
 
     public override void Exit()
@@ -21,5 +22,13 @@ public class PlayerJumpState : PlayerState
     public override void Update()
     {
         base.Update();
+              
     }
+
+    private void Jump()
+    {
+        _rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
+    }
+
+
 }

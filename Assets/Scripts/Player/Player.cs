@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Animal
 {
     #region Components
-    Camera _mainCamera;
+    public Camera _mainCamera { get; private set; }
     #endregion
     #region States
     public PlayerStateMachine _stateMachine { get; private set; }
@@ -29,6 +29,8 @@ public class Player : Animal
         base.Start();
         _stateMachine.Initialize(_idleState);
 
+        _speed = 5f;
+
         _pos = new Vector3(0f, 5f, 0f);
         this.transform.position = _pos;
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
@@ -37,14 +39,10 @@ public class Player : Animal
 
         _animatorController = Resources.Load<RuntimeAnimatorController>(PlayerStaticFields.AnimationPath); // получаем контроллер анимации
         _animator.runtimeAnimatorController = _animatorController; // добавляемым контроллер а анимацию
-
-        _mainCamera = Camera.main;
     }
 
     private void Update()
     {
         _stateMachine._currentState.Update();
-
-
     }
 }
