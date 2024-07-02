@@ -21,8 +21,12 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
-        
-        if (_input != Vector3.zero) 
+
+        Debug.Log(_player._rb == true);
+
+        /*_rb.position = new Vector3(_player._xClamp, _player._rb.position.y, _player._zClamp);*/
+
+        if (_player._input != Vector3.zero) 
         {
             _stateMachine.ChangeState(_player._moveState);
         }

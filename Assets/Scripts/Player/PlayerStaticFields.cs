@@ -9,5 +9,6 @@ public class PlayerStaticFields
     public static string Move => "Move";
     public static string Jump => "Jump";
     public static string Death => "Death";
+    public static string Dash => "Dash";
     public static string AnimationPath => "Animation/Cat/Cat";
 }

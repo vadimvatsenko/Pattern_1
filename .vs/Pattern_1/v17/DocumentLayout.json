@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerjumpstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playermovestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playermovestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|p:\\projects and documents\\unity project\\pattern_1\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playerdeadstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,24 +39,12 @@
       "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstatemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|p:\\projects and documents\\unity project\\pattern_1\\assets\\scripts\\player\\playerdashstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerdashstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|p:\\projects and documents\\unity project\\pattern_1\\assets\\scripts\\player\\playerstaticfields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playerstaticfields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstaticfields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|P:\\Projects and Documents\\Unity Project\\Pattern_1\\assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AD46D46-635D-401C-E66A-16D8B01E3AB8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,13 +62,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
+              "Title": "PlayerDashState.cs",
+              "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerDashState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerDashState.cs",
+              "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerDashState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerDashState.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T08:27:49.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PlayerState.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerState.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerState.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerState.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABaAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwDAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T08:44:33.117Z",
               "EditorCaption": ""
@@ -77,40 +94,40 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerJumpState.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerJumpState.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerJumpState.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAIAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwCwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T09:21:52.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "PlayerIdleState.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerIdleState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerIdleState.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerIdleState.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerIdleState.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA6AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T09:17:19.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PlayerMoveState.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerMoveState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMoveState.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerMoveState.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMoveState.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAowBoAAAA6AAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwDEAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T09:18:25.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "PlayerDeadState.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerDeadState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerDeadState.cs",
@@ -123,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "PlayerStateMachine.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerStateMachine.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerStateMachine.cs",
@@ -136,52 +153,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAA0wC0AAAAjAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAswD4AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T08:50:33.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Cat.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Cat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Cat.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAEwFoAAAAXAAAA",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAEwGwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-29T11:52:44.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "Animal.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Animal.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Animal.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Animal.cs",
               "RelativeToolTip": "Assets\\Scripts\\Animal.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBgAAAAFAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T09:42:29.776Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "PlayerStaticFields.cs",
               "DocumentMoniker": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerStaticFields.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerStaticFields.cs",
               "ToolTip": "P:\\Projects and Documents\\Unity Project\\Pattern_1\\Assets\\Scripts\\Player\\PlayerStaticFields.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerStaticFields.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T08:56:29.574Z",
               "EditorCaption": ""

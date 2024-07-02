@@ -18,7 +18,7 @@ public class Dog : Animal
     public override void Start()
     {
         base.Start();
-        _catPos = FindObjectOfType<Cat>().transform;
+        _catPos = FindObjectOfType<Player>().transform;
 
         this._collader.size = new Vector3(0.71f, 1.64f, 1.54f);
         this._collader.center = new Vector3(0f, 0.86f, 0f);

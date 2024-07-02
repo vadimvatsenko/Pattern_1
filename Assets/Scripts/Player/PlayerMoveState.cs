@@ -22,11 +22,15 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
         Movement();
-        if (_input == Vector3.zero) 
+        if (_player._input == Vector3.zero) 
         {
             _stateMachine.ChangeState(_player._idleState);
         }
-        
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _stateMachine.ChangeState(_player._dashState);
+        }
+
     }
 
     private void Movement()
@@ -37,18 +41,13 @@ public class PlayerMoveState : PlayerState
         forward.y = 0f; // Убираем компоненту по оси Y, чтобы движение было только по X и Z
         right.y = 0f;
      
-        _moveVector = (_input.x * right) + (_input.z * forward).normalized; // _moveVector как сделать доступный ??? 
+        _moveVector = (_player._input.x * right) + (_player._input.z * forward).normalized; // _moveVector как сделать доступный ??? 
 
-        float xClamp = Mathf.Clamp(this._rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
-        float zClamp = Mathf.Clamp(this._rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
-
-        if (_moveVector != Vector3.zero)
-        {
-            _rb.MovePosition(new Vector3(xClamp, _rb.position.y, zClamp) + _moveVector * _player._speed * Time.deltaTime);
+            _player._rb.MovePosition(new Vector3(_player._xClamp, _player._rb.position.y, _player._zClamp) + _moveVector * _player._speed * Time.deltaTime);
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
 
-            _rb.MoveRotation(Quaternion.Lerp(_rb.rotation, unitRotation, Time.deltaTime * _player._speed));
-        }
+            _player._rb.MoveRotation(Quaternion.Lerp(_player._rb.rotation, unitRotation, Time.deltaTime * _player._speed));
+        
     }
 }

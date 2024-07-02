@@ -60,6 +60,7 @@
     <Analyzer Include="P:\Programs\Unity\Hub\Editor\2022.3.30f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Player\PlayerDashState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDeadState.cs" />
     <Compile Include="Assets\Scripts\CameraFollowTarget.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerJumpState.cs" />

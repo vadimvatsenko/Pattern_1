@@ -27,7 +27,21 @@ public class PlayerJumpState : PlayerState
 
     private void Jump()
     {
-        _rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
+        _player._rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Plane>())
+        {
+            isJump = true;
+        }
+
+        if (collision.gameObject.GetComponent<Dog>())
+        {
+            isDead = true;
+            CatDeath();
+        }
     }
 
 
