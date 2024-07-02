@@ -30,7 +30,7 @@ public class PlayerJumpState : PlayerState
         _player._rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Plane>())
         {
@@ -42,7 +42,7 @@ public class PlayerJumpState : PlayerState
             isDead = true;
             CatDeath();
         }
-    }
+    }*/
 
 
 }
