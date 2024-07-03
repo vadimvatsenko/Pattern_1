@@ -22,7 +22,12 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
-        Debug.Log(_player._rb == true);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _stateMachine.ChangeState(_player._jumpState);
+        }
+
+        
 
         /*_rb.position = new Vector3(_player._xClamp, _player._rb.position.y, _player._zClamp);*/
 

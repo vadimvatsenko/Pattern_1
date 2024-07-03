@@ -21,8 +21,14 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _stateMachine.ChangeState(_player._jumpState);
+        }
+
         Movement();
-        if (_player._input == Vector3.zero) 
+        if (_player._input == Vector3.zero)
         {
             _stateMachine.ChangeState(_player._idleState);
         }
@@ -30,7 +36,6 @@ public class PlayerMoveState : PlayerState
         {
             _stateMachine.ChangeState(_player._dashState);
         }
-
     }
 
     private void Movement()
@@ -40,14 +45,17 @@ public class PlayerMoveState : PlayerState
 
         forward.y = 0f; // Убираем компоненту по оси Y, чтобы движение было только по X и Z
         right.y = 0f;
-     
+
         _moveVector = (_player._input.x * right) + (_player._input.z * forward).normalized; // _moveVector как сделать доступный ??? 
 
+        if (_moveVector != Vector3.zero)
+        {
             _player._rb.MovePosition(new Vector3(_player._xClamp, _player._rb.position.y, _player._zClamp) + _moveVector * _player._speed * Time.deltaTime);
 
             Quaternion unitRotation = Quaternion.LookRotation(_moveVector);
 
             _player._rb.MoveRotation(Quaternion.Lerp(_player._rb.rotation, unitRotation, Time.deltaTime * _player._speed));
-        
+        }
+
     }
 }

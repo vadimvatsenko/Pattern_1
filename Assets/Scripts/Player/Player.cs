@@ -60,8 +60,6 @@ public class Player : Animal
        
     }
 
-    
-
     public void Deconstruct(out Vector3 input, out float xClamp, out float zClamp, out List<PlayerState> states)
     {
         input = _input;

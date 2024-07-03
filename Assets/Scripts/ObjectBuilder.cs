@@ -35,7 +35,7 @@ public class ObjectBuilder : MonoBehaviour
         }
         catch 
         {
-            Debug.Log("Поток окончен");
+            //Debug.Log("Поток окончен");
         }
     }
   
@@ -84,7 +84,7 @@ public class ObjectBuilder : MonoBehaviour
     {
         await foreach (var item in asyncEnumerable.WithCancellation(cancellationToken))
         {
-            Debug.Log($"Получено: {item}");
+            //Debug.Log($"Получено: {item}");
         }
     }
 }

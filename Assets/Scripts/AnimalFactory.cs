@@ -26,7 +26,7 @@ public class AnimalFactory : AnimalAbstractFactory
         {
             var goDog = GameObject.Instantiate(dogPrefab);
             goDog.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard ));
-            goDog.AddComponent<Dog>();
+            //goDog.AddComponent<Dog>();
             goDog.transform.SetParent(dogsParent.transform);
             
             await Task.Yield();

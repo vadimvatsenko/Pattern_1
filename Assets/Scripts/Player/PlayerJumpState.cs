@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
+    
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
@@ -22,7 +23,7 @@ public class PlayerJumpState : PlayerState
     public override void Update()
     {
         base.Update();
-              
+        OnGroundDetected();
     }
 
     private void Jump()
@@ -30,19 +31,14 @@ public class PlayerJumpState : PlayerState
         _player._rb.AddForce(new Vector3(0f, 5f, 0f) + _moveVector, ForceMode.Impulse);
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnGroundDetected()
     {
-        if (collision.gameObject.GetComponent<Plane>())
+        Ray ray = new Ray(this._player.transform.position, Vector3.down);
+        Debug.DrawRay(ray.origin, ray.direction);
+        if(Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
         {
-            isJump = true;
+            
+            _stateMachine.ChangeState(_player._idleState);
         }
-
-        if (collision.gameObject.GetComponent<Dog>())
-        {
-            isDead = true;
-            CatDeath();
-        }
-    }*/
-
-
+    }
 }
