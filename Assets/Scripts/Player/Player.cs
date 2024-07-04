@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Player : Animal
 {
+    public enum StatesEnum
+    {
+        IDLE,
+        MOVE,
+        JUMP,
+        DASH,
+        DEATH,
+    }
     #region Components
     public Camera _mainCamera { get; private set; }
     #endregion
@@ -56,22 +64,21 @@ public class Player : Animal
 
         _input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _xClamp = Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
-        _zClamp = Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
-       
+        _zClamp = Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);       
     }
 
-    public void Deconstruct(out Vector3 input, out float xClamp, out float zClamp, out List<PlayerState> states)
+    public void Deconstruct(out Vector3 input, out float xClamp, out float zClamp, out Dictionary<StatesEnum, PlayerState> states)
     {
         input = _input;
         xClamp = _xClamp;
         zClamp = _zClamp;
-        states = new List<PlayerState>()
+        states = new Dictionary<StatesEnum, PlayerState>()
         {
-            _idleState,
-            _moveState,
-            _jumpState,
-            _dashState,
-            _deathState,
+            {StatesEnum.IDLE, _idleState},
+            {StatesEnum.MOVE, _moveState},
+            {StatesEnum.JUMP, _jumpState},
+            {StatesEnum.DASH, _dashState},
+            {StatesEnum.DEATH, _deathState},            
         };
     }
 }

@@ -22,20 +22,14 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _stateMachine.ChangeState(_player._jumpState);
-        }
-
         Movement();
+        Debug.Log(_player._input);
+
         if (_player._input == Vector3.zero)
         {
             _stateMachine.ChangeState(_player._idleState);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _stateMachine.ChangeState(_player._dashState);
-        }
+        
     }
 
     private void Movement()

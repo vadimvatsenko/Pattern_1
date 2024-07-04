@@ -29,7 +29,7 @@ public class PlayerState
     {
         //Debug.Log($"I am in {_animBoolName}");
 
-        (Vector3 input, float xClamp, float zClamp, List<PlayerState> states) = _player; // тут можно получать?
+        (Vector3 input, float xClamp, float zClamp, Dictionary<States, PlayerState> states) = _player; // тут можно получать?
 
         
 
@@ -40,7 +40,7 @@ public class PlayerState
 
         if (input != Vector3.zero)
         {
-            _stateMachine.ChangeState(states[1]);
+            _stateMachine.ChangeState(states["MOVE"]);
         }
     }
 

@@ -27,10 +27,6 @@ public class PlayerIdleState : PlayerState
             _stateMachine.ChangeState(_player._jumpState);
         }
 
-        
-
-        /*_rb.position = new Vector3(_player._xClamp, _player._rb.position.y, _player._zClamp);*/
-
         if (_player._input != Vector3.zero) 
         {
             _stateMachine.ChangeState(_player._moveState);
