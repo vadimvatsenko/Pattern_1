@@ -14,6 +14,7 @@ public class Plane : MonoBehaviour
     public Transform _flowersParent { get; private set; }
     public Transform _trees1Parent { get; private set; }
     public Transform _trees2Parent { get; private set; }
+    
 
     private void Awake()
     {       
@@ -21,6 +22,7 @@ public class Plane : MonoBehaviour
         _material = Resources.Load<Material>("Materials/Green");
         _meshFilter = GetComponent<MeshFilter>();
         _planeSize = this._meshFilter.mesh.bounds.size;
+        this.gameObject.layer = 6;
 
         this.transform.localScale = new Vector3(6, 1, 6); // это первый
         _planeWorldSize = Vector3.Scale(_planeSize, this.transform.localScale); // умножаем размер на скейл;

@@ -23,13 +23,17 @@ public class PlayerMoveState : PlayerState
         base.Update();
 
         Movement();
-        Debug.Log(_player._input);
 
-        if (_player._input == Vector3.zero)
+        if (_player._input == Vector3.zero )
         {
             _stateMachine.ChangeState(_player._idleState);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _stateMachine.ChangeState(_player._jumpState);
+        }
+
     }
 
     private void Movement()

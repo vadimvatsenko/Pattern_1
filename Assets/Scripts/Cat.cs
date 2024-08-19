@@ -11,10 +11,13 @@ public class Cat : Animal
     private float _dathTime;
     private bool isJump = true;
     private bool isDead = false;
+
+    private LayerMask _groundMask;
     public override void Start()
     {
         base.Start();
 
+        _groundMask = 6;
         _mainCamera = Camera.main;
         _speed = 5f;
         _dathTime = 3f;
@@ -32,6 +35,8 @@ public class Cat : Animal
     private void Update()
     {
        _dathTime -= Time.deltaTime;
+
+        
     }
 
     private void FixedUpdate()

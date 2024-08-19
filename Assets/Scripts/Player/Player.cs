@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Player : Animal
 {
-    public enum StatesEnum
-    {
-        IDLE,
-        MOVE,
-        JUMP,
-        DASH,
-        DEATH,
-    }
     #region Components
     public Camera _mainCamera { get; private set; }
     #endregion
@@ -31,6 +23,7 @@ public class Player : Animal
     public Vector3 _input;
     #endregion
 
+    private GameObject _plane;
     private void Awake()
     {
         _stateMachine = new PlayerStateMachine();
@@ -38,7 +31,9 @@ public class Player : Animal
         _moveState = new PlayerMoveState(this, _stateMachine, PlayerStaticFields.Move);
         _jumpState = new PlayerJumpState(this, _stateMachine, PlayerStaticFields.Jump);
         _dashState = new PlayerDashState(this, _stateMachine, PlayerStaticFields.Dash);
-        _deathState = new PlayerDeadState(this, _stateMachine, PlayerStaticFields.Death);        
+        _deathState = new PlayerDeadState(this, _stateMachine, PlayerStaticFields.Death);      
+        
+        _plane = FindObjectOfType<Plane>().gameObject;
     }
 
     public override void Start()
@@ -64,22 +59,22 @@ public class Player : Animal
 
         _input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _xClamp = Mathf.Clamp(_rb.position.x, StaticFields.LeftBoard, StaticFields.RightBoard);
-        _zClamp = Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);       
+        _zClamp = Mathf.Clamp(_rb.position.z, StaticFields.TopBoard, StaticFields.BottomBoard);
+
+        /*LayerMask _groundMask = 6;
+        RaycastHit hit;
+        if (Physics.Raycast(new Vector3(this.transform.position.x, transform.position.y + this.gameObject.GetComponent<BoxCollider>().size.y / 2), Vector3.down, out hit, 12f, _groundMask))
+        {
+            Debug.Log(hit);
+        }
+
+        _rb.AddExplosionForce(10f, transform.position, 10f);*/
+
+        //Physics.IgnoreCollision(_plane.GetComponent<MeshCollider>(), this.GetComponent<BoxCollider>(), true);
+
+        //Physics.IgnoreLayerCollision()
+
     }
 
-    public void Deconstruct(out Vector3 input, out float xClamp, out float zClamp, out Dictionary<StatesEnum, PlayerState> states)
-    {
-        input = _input;
-        xClamp = _xClamp;
-        zClamp = _zClamp;
-        states = new Dictionary<StatesEnum, PlayerState>()
-        {
-            {StatesEnum.IDLE, _idleState},
-            {StatesEnum.MOVE, _moveState},
-            {StatesEnum.JUMP, _jumpState},
-            {StatesEnum.DASH, _dashState},
-            {StatesEnum.DEATH, _deathState},            
-        };
-    }
 }
 

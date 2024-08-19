@@ -35,9 +35,9 @@ public class PlayerJumpState : PlayerState
     {
         Ray ray = new Ray(this._player.transform.position, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction);
-        if(Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.05f))
         {
-            
             _stateMachine.ChangeState(_player._idleState);
         }
     }

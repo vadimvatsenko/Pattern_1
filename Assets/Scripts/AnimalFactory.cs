@@ -8,11 +8,10 @@ using UnityEngine;
 
 public class AnimalFactory : AnimalAbstractFactory
 {
-
     public override GameObject CreateCat()
     {        
         GameObject catPrefab = Resources.Load<GameObject>("Models/Cat"); // если создать папку Resources в Ассетах
-        GameObject goCat = GameObject.Instantiate(catPrefab);
+        GameObject goCat = Instantiate(catPrefab);
         goCat.AddComponent<Player>(); 
         return goCat;
     }
@@ -24,9 +23,9 @@ public class AnimalFactory : AnimalAbstractFactory
 
         for (int i = 0; i < count; i++)
         {
-            var goDog = GameObject.Instantiate(dogPrefab);
+            var goDog = Instantiate(dogPrefab);
             goDog.transform.position = new Vector3(Random.Range(StaticFields.LeftBoard, StaticFields.RightBoard), 0, Random.Range(StaticFields.TopBoard, StaticFields.BottomBoard ));
-            //goDog.AddComponent<Dog>();
+            goDog.AddComponent<Dog>();
             goDog.transform.SetParent(dogsParent.transform);
             
             await Task.Yield();
@@ -40,7 +39,6 @@ public class AnimalFactory : AnimalAbstractFactory
         GameObject chickenPrefab = Resources.Load<GameObject>("Models/Chicken");
         GameObject chickenParent = new GameObject("Chickens");
 
-
         for (int i = 0; i < count; i++)
         {
             var goChicken = GameObject.Instantiate(chickenPrefab);
@@ -51,8 +49,6 @@ public class AnimalFactory : AnimalAbstractFactory
             await Task.Yield();
 
             yield return goChicken;
-
-
         }
     }
 }

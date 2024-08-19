@@ -29,6 +29,7 @@ public class PlayerIdleState : PlayerState
 
         if (_player._input != Vector3.zero) 
         {
+            Debug.Log("Move");
             _stateMachine.ChangeState(_player._moveState);
         }
     }
