@@ -1035,7 +1035,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Img\Abstract Fabric.png" />
+    <Content Include="Img\AbstractFabric.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
